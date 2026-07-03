@@ -1,0 +1,3 @@
+- **INNER JOIN:** Chỉ lấy những dòng mà cả 2 bảng cùng có.
+- **LEFT JOIN:** Giữ lại sạch sẽ bảng bên trái, bảng bên phải không có thì điền NULL.
+- **Data Reconciliation (Đối soát):** Luôn dùng SUM + GROUP BY ở bảng chi tiết để kiểm tra chéo số tiền tổng hợp ở bảng chính xem có bị nhập sai không.
