@@ -43,3 +43,36 @@ CREATE TABLE orders (
     created_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+-- ============================================
+-- BẢNG: CATEGORIES (Danh mục sản phẩm)
+-- ============================================
+CREATE TABLE categories (
+    category_id     SERIAL PRIMARY KEY,
+    category_name   VARCHAR(100)    NOT NULL UNIQUE,
+    parent_id       INT             REFERENCES categories(category_id)
+                        ON DELETE SET NULL,
+    created_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ============================================
+-- BẢNG: ORDER_ITEMS (Bảng trung gian order-product)
+-- ============================================
+CREATE TABLE order_items (
+    order_item_id   SERIAL PRIMARY KEY,
+    order_id        INT             NOT NULL REFERENCES orders(order_id)
+                        ON DELETE CASCADE,
+    product_id      INT             NOT NULL REFERENCES products(product_id)
+                        ON DELETE RESTRICT,
+    quantity        INT             NOT NULL CHECK (quantity > 0),
+    unit_price      NUMERIC(12,2)   NOT NULL CHECK (unit_price >= 0),
+    subtotal        NUMERIC(12,2)   GENERATED ALWAYS AS (quantity * unit_price) STORED,
+
+    UNIQUE (order_id, product_id)
+);
+
+-- ============================================
+-- ALTER: Gắn products vào categories
+-- ============================================
+ALTER TABLE products
+    ADD COLUMN category_id INT REFERENCES categories(category_id)
+        ON DELETE SET NULL;
