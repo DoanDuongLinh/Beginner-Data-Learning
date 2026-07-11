@@ -7,3 +7,4 @@ Nội dung của hướng dẫn lệnh git cơ bản:
 
 ## Quy tắc để không bị rối:
 1. hãy cố gắng <học khung>. Không nhất thiết nhớ từng chút một, nhớ cách làm là nhớ cách sử dụng
+2. Ngày 7/11/2026 đang cập nhập vào thứ 7, hiện tại hôm nay mới bảo trì
