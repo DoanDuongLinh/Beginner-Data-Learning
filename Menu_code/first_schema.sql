@@ -1,21 +1,23 @@
 CREATE TABLE HO_KHAU(
     So_HK VARCHAR(20) PRIMARY KEY,
     SotheChuho VARCHAR(20),
-    Diachi NVARCHAR(200),
-)
+    Diachi NVARCHAR(200)
+);
+
 CREATE TABLE CONG_DAN(
     SotheCD VARCHAR(20) PRIMARY KEY,
     tenCD NVARCHAR(100),
     ngaysinh DATE,
     SotheChuho VARCHAR(20),
     quanheChuho NVARCHAR(100)
-)
+);
+
 CREATE TABLE QL_KHU(
     SoKhu VARCHAR(20),
     So_HK VARCHAR(20),
     soluongNhanKhau INT,
-    PRIMARY KEY(SoKhu, So_HK),
-)
+    PRIMARY KEY(SoKhu, So_HK)
+);
 
 INSERT INTO HO_KHAU (So_HK, SotheChuho, Diachi) VALUES
 ('HK001', 'CD001', N'123 Đường A, Phường B, Quận C'),
@@ -31,3 +33,6 @@ INSERT INTO QL_KHU (SoKhu, So_HK, soluongNhanKhau) VALUES
 ('KHU001', 'HK001', 3),
 ('KHU002', 'HK002', 2),
 ('KHU003', 'HK003', 1);
+SELECT * FROM HO_KHAU;
+SELECT * FROM CONG_DAN;
+SELECT * FROM QL_KHU;
