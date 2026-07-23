@@ -16,3 +16,4 @@
 
 `CREATE INDEX` - tạo chỉ mục (khoá tìm kiến)
 `DROP INDEX ` - xoá 1 chỉ mục
+----------------
